@@ -14,10 +14,11 @@ namespace ConsoleAppIMCArray
             double[] altura = new double[5];
             double[] peso = new double[5];
             double[] imc = new double[5];
+            double cont = 0;
 
             for (int i = 0; i <= 4; i++)
             {
-                Console.WriteLine("Insira o nome");
+                Console.WriteLine("Insira o nome: ");
                 nome[i] = Console.ReadLine();
 
                 Console.WriteLine("Insira a altura: ");
@@ -27,14 +28,14 @@ namespace ConsoleAppIMCArray
                 peso[i] = double.Parse(Console.ReadLine());
 
                 imc[i] = peso[i] / (altura[i] * altura[i]);
-
+                Console.Clear();
             }
             Console.Clear();
             for (int j = 0; j <= 4; j++)
             {
                 Console.WriteLine("Nome: "+nome[j]);
-                Console.WriteLine("Altura" + altura[j]);
-                Console.WriteLine("Peso" + peso[j]);
+                Console.WriteLine("Altura: " + altura[j]);
+                Console.WriteLine("Peso: " + peso[j]);
 
                 if (imc[j] <= 16.9)
                 {
@@ -51,20 +52,26 @@ namespace ConsoleAppIMCArray
                 else if (imc[j] <= 29.9)
                 {
                     Console.WriteLine("Você está acima do peso " + imc[j]);
+                    cont++;
                 }
                 else if (imc[j] <= 34.9)
                 {
                     Console.WriteLine("Obesidade Grau 1 " + imc[j]);
+                    cont++;
                 }
                 else if (imc[j] <= 40)
                 {
                     Console.WriteLine("Obesidade Grau 2 " + imc[j]);
+                    cont++;
                 }
                 else if (imc[j] > 40)
                 {
                     Console.WriteLine("Obesidade Grau 3 " + imc[j]);
+                    cont++;
                 }
             }
+            Console.WriteLine("" + cont * 20 + " % pessoas estão acima do peso ideal");
+            Console.ReadKey();
         }
     }
 }
